@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ArbitrosViewDlg" widgetVar="ArbitrosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewArbitrosTitle}">
+            <h:form id="ArbitrosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{arbitrosController.selected != null}">
+                        <h:outputText value="#{bundle.ViewArbitrosLabel_codArbitro}"/>
+                        <h:outputText value="#{arbitrosController.selected.codArbitro}" title="#{bundle.ViewArbitrosTitle_codArbitro}"/>
+                        <h:outputText value="#{bundle.ViewArbitrosLabel_nomArbitro}"/>
+                        <h:outputText value="#{arbitrosController.selected.nomArbitro}" title="#{bundle.ViewArbitrosTitle_nomArbitro}"/>
+                        <h:outputText value="#{bundle.ViewArbitrosLabel_apeArbitro}"/>
+                        <h:outputText value="#{arbitrosController.selected.apeArbitro}" title="#{bundle.ViewArbitrosTitle_apeArbitro}"/>
+                        <h:outputText value="#{bundle.ViewArbitrosLabel_codPais}"/>
+                        <h:outputText value="#{arbitrosController.selected.codPais}" title="#{bundle.ViewArbitrosTitle_codPais}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ArbitrosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

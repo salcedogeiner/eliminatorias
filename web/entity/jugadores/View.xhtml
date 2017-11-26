@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="JugadoresViewDlg" widgetVar="JugadoresViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewJugadoresTitle}">
+            <h:form id="JugadoresViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{jugadoresController.selected != null}">
+                        <h:outputText value="#{bundle.ViewJugadoresLabel_jugadoresPK_codJugador}"/>
+                        <h:outputText value="#{jugadoresController.selected.jugadoresPK.codJugador}" title="#{bundle.ViewJugadoresTitle_jugadoresPK_codJugador}"/>
+                        <h:outputText value="#{bundle.ViewJugadoresLabel_nomJugador}"/>
+                        <h:outputText value="#{jugadoresController.selected.nomJugador}" title="#{bundle.ViewJugadoresTitle_nomJugador}"/>
+                        <h:outputText value="#{bundle.ViewJugadoresLabel_apeJugador}"/>
+                        <h:outputText value="#{jugadoresController.selected.apeJugador}" title="#{bundle.ViewJugadoresTitle_apeJugador}"/>
+                        <h:outputText value="#{bundle.ViewJugadoresLabel_FNac}"/>
+                        <h:outputText value="#{jugadoresController.selected.FNac}" title="#{bundle.ViewJugadoresTitle_FNac}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewJugadoresLabel_posicionJugador}"/>
+                        <h:outputText value="#{jugadoresController.selected.posicionJugador}" title="#{bundle.ViewJugadoresTitle_posicionJugador}"/>
+                        <h:outputText value="#{bundle.ViewJugadoresLabel_equipos}"/>
+                        <h:outputText value="#{jugadoresController.selected.equipos}" title="#{bundle.ViewJugadoresTitle_equipos}"/>
+                        <h:outputText value="#{bundle.ViewJugadoresLabel_codPais}"/>
+                        <h:outputText value="#{jugadoresController.selected.codPais}" title="#{bundle.ViewJugadoresTitle_codPais}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="JugadoresViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

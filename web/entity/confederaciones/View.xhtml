@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ConfederacionesViewDlg" widgetVar="ConfederacionesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewConfederacionesTitle}">
+            <h:form id="ConfederacionesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{confederacionesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewConfederacionesLabel_codConfederacion}"/>
+                        <h:outputText value="#{confederacionesController.selected.codConfederacion}" title="#{bundle.ViewConfederacionesTitle_codConfederacion}"/>
+                        <h:outputText value="#{bundle.ViewConfederacionesLabel_nomConfederacion}"/>
+                        <h:outputText value="#{confederacionesController.selected.nomConfederacion}" title="#{bundle.ViewConfederacionesTitle_nomConfederacion}"/>
+                        <h:outputText value="#{bundle.ViewConfederacionesLabel_abrConfederacion}"/>
+                        <h:outputText value="#{confederacionesController.selected.abrConfederacion}" title="#{bundle.ViewConfederacionesTitle_abrConfederacion}"/>
+                        <h:outputText value="#{bundle.ViewConfederacionesLabel_cupos}"/>
+                        <h:outputText value="#{confederacionesController.selected.cupos}" title="#{bundle.ViewConfederacionesTitle_cupos}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ConfederacionesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

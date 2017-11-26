@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TorneosEditDlg" widgetVar="TorneosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTorneosTitle}">
+            <h:form id="TorneosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{torneosController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditTorneosLabel_idTorneo}" for="idTorneo" />
+                        <p:inputText id="idTorneo" value="#{torneosController.selected.idTorneo}" title="#{bundle.EditTorneosTitle_idTorneo}" required="true" requiredMessage="#{bundle.EditTorneosRequiredMessage_idTorneo}"/>
+                        <p:outputLabel value="#{bundle.EditTorneosLabel_nomTorneo}" for="nomTorneo" />
+                        <p:inputText id="nomTorneo" value="#{torneosController.selected.nomTorneo}" title="#{bundle.EditTorneosTitle_nomTorneo}" required="true" requiredMessage="#{bundle.EditTorneosRequiredMessage_nomTorneo}"/>
+                        <p:outputLabel value="#{bundle.EditTorneosLabel_tipoTorneo}" for="tipoTorneo" />
+                        <p:inputText id="tipoTorneo" value="#{torneosController.selected.tipoTorneo}" title="#{bundle.EditTorneosTitle_tipoTorneo}" required="true" requiredMessage="#{bundle.EditTorneosRequiredMessage_tipoTorneo}"/>
+                        <p:outputLabel value="#{bundle.EditTorneosLabel_anio}" for="anio" />
+                        <p:inputText id="anio" value="#{torneosController.selected.anio}" title="#{bundle.EditTorneosTitle_anio}" required="true" requiredMessage="#{bundle.EditTorneosRequiredMessage_anio}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{torneosController.update}" value="#{bundle.Save}" update="display,:TorneosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TorneosEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TorneosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

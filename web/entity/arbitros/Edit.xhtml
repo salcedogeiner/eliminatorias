@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ArbitrosEditDlg" widgetVar="ArbitrosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditArbitrosTitle}">
+            <h:form id="ArbitrosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{arbitrosController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditArbitrosLabel_codArbitro}" for="codArbitro" />
+                        <p:inputText id="codArbitro" value="#{arbitrosController.selected.codArbitro}" title="#{bundle.EditArbitrosTitle_codArbitro}" required="true" requiredMessage="#{bundle.EditArbitrosRequiredMessage_codArbitro}"/>
+                        <p:outputLabel value="#{bundle.EditArbitrosLabel_nomArbitro}" for="nomArbitro" />
+                        <p:inputText id="nomArbitro" value="#{arbitrosController.selected.nomArbitro}" title="#{bundle.EditArbitrosTitle_nomArbitro}" required="true" requiredMessage="#{bundle.EditArbitrosRequiredMessage_nomArbitro}"/>
+                        <p:outputLabel value="#{bundle.EditArbitrosLabel_apeArbitro}" for="apeArbitro" />
+                        <p:inputText id="apeArbitro" value="#{arbitrosController.selected.apeArbitro}" title="#{bundle.EditArbitrosTitle_apeArbitro}" required="true" requiredMessage="#{bundle.EditArbitrosRequiredMessage_apeArbitro}"/>
+                        <p:outputLabel value="#{bundle.EditArbitrosLabel_codPais}" for="codPais" />
+                        <p:selectOneMenu id="codPais" value="#{arbitrosController.selected.codPais}" required="true" requiredMessage="#{bundle.EditArbitrosRequiredMessage_codPais}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{paisesController.itemsAvailableSelectOne}"
+                                           var="codPaisItem"
+                                           itemValue="#{codPaisItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{arbitrosController.update}" value="#{bundle.Save}" update="display,:ArbitrosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ArbitrosEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ArbitrosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

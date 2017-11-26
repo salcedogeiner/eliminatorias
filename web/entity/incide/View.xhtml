@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="IncideViewDlg" widgetVar="IncideViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewIncideTitle}">
+            <h:form id="IncideViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{incideController.selected != null}">
+                        <h:outputText value="#{bundle.ViewIncideLabel_incidePK_minuto}"/>
+                        <h:outputText value="#{incideController.selected.incidePK.minuto}" title="#{bundle.ViewIncideTitle_incidePK_minuto}"/>
+                        <h:outputText value="#{bundle.ViewIncideLabel_incidePK_tipoIncidente}"/>
+                        <h:outputText value="#{incideController.selected.incidePK.tipoIncidente}" title="#{bundle.ViewIncideTitle_incidePK_tipoIncidente}"/>
+                        <h:outputText value="#{bundle.ViewIncideLabel_enfrenta}"/>
+                        <h:outputText value="#{incideController.selected.enfrenta}" title="#{bundle.ViewIncideTitle_enfrenta}"/>
+                        <h:outputText value="#{bundle.ViewIncideLabel_jugadores}"/>
+                        <h:outputText value="#{incideController.selected.jugadores}" title="#{bundle.ViewIncideTitle_jugadores}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="IncideViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

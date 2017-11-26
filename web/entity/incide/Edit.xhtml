@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="IncideEditDlg" widgetVar="IncideEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditIncideTitle}">
+            <h:form id="IncideEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{incideController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditIncideLabel_incidePK_minuto}" for="incidePK_minuto" />
+                        <p:inputText id="incidePK_minuto" value="#{incideController.selected.incidePK.minuto}" title="#{bundle.EditIncideTitle_incidePK_minuto}" required="true" requiredMessage="#{bundle.EditIncideRequiredMessage_incidePK_minuto}"/>
+                        <p:outputLabel value="#{bundle.EditIncideLabel_incidePK_tipoIncidente}" for="incidePK_tipoIncidente" />
+                        <p:inputText id="incidePK_tipoIncidente" value="#{incideController.selected.incidePK.tipoIncidente}" title="#{bundle.EditIncideTitle_incidePK_tipoIncidente}" required="true" requiredMessage="#{bundle.EditIncideRequiredMessage_incidePK_tipoIncidente}"/>
+                        <p:outputLabel value="#{bundle.EditIncideLabel_enfrenta}" for="enfrenta" />
+                        <p:selectOneMenu id="enfrenta" value="#{incideController.selected.enfrenta}" required="true" requiredMessage="#{bundle.EditIncideRequiredMessage_enfrenta}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{enfrentaController.itemsAvailableSelectOne}"
+                                           var="enfrentaItem"
+                                           itemValue="#{enfrentaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditIncideLabel_jugadores}" for="jugadores" />
+                        <p:selectOneMenu id="jugadores" value="#{incideController.selected.jugadores}" required="true" requiredMessage="#{bundle.EditIncideRequiredMessage_jugadores}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{jugadoresController.itemsAvailableSelectOne}"
+                                           var="jugadoresItem"
+                                           itemValue="#{jugadoresItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{incideController.update}" value="#{bundle.Save}" update="display,:IncideListForm:datalist,:growl" oncomplete="handleSubmit(args, 'IncideEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="IncideEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TieneCreateDlg" widgetVar="TieneCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTieneTitle}">
+            <h:form id="TieneCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tieneController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateTieneLabel_equipos}" for="equipos" />
+                        <p:selectOneMenu id="equipos" value="#{tieneController.selected.equipos}" required="true" requiredMessage="#{bundle.EditTieneRequiredMessage_equipos}">
+                            <f:selectItems value="#{equiposController.itemsAvailableSelectOne}"
+                                           var="equiposItem"
+                                           itemValue="#{equiposItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateTieneLabel_estadios}" for="estadios" />
+                        <p:selectOneMenu id="estadios" value="#{tieneController.selected.estadios}" required="true" requiredMessage="#{bundle.EditTieneRequiredMessage_estadios}">
+                            <f:selectItems value="#{estadiosController.itemsAvailableSelectOne}"
+                                           var="estadiosItem"
+                                           itemValue="#{estadiosItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tieneController.create}" value="#{bundle.Save}" update="display,:TieneListForm:datalist,:growl" oncomplete="handleSubmit(args,'TieneCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TieneCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

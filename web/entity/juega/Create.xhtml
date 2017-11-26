@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="JuegaCreateDlg" widgetVar="JuegaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateJuegaTitle}">
+            <h:form id="JuegaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{juegaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateJuegaLabel_goles}" for="goles" />
+                        <p:inputText id="goles" value="#{juegaController.selected.goles}" title="#{bundle.CreateJuegaTitle_goles}" required="true" requiredMessage="#{bundle.CreateJuegaRequiredMessage_goles}"/>
+                        <p:outputLabel value="#{bundle.CreateJuegaLabel_ganados}" for="ganados" />
+                        <p:inputText id="ganados" value="#{juegaController.selected.ganados}" title="#{bundle.CreateJuegaTitle_ganados}" required="true" requiredMessage="#{bundle.CreateJuegaRequiredMessage_ganados}"/>
+                        <p:outputLabel value="#{bundle.CreateJuegaLabel_empatados}" for="empatados" />
+                        <p:inputText id="empatados" value="#{juegaController.selected.empatados}" title="#{bundle.CreateJuegaTitle_empatados}" required="true" requiredMessage="#{bundle.CreateJuegaRequiredMessage_empatados}"/>
+                        <p:outputLabel value="#{bundle.CreateJuegaLabel_perdidos}" for="perdidos" />
+                        <p:inputText id="perdidos" value="#{juegaController.selected.perdidos}" title="#{bundle.CreateJuegaTitle_perdidos}" required="true" requiredMessage="#{bundle.CreateJuegaRequiredMessage_perdidos}"/>
+                        <p:outputLabel value="#{bundle.CreateJuegaLabel_jugadores}" for="jugadores" />
+                        <p:selectOneMenu id="jugadores" value="#{juegaController.selected.jugadores}" required="true" requiredMessage="#{bundle.EditJuegaRequiredMessage_jugadores}">
+                            <f:selectItems value="#{jugadoresController.itemsAvailableSelectOne}"
+                                           var="jugadoresItem"
+                                           itemValue="#{jugadoresItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateJuegaLabel_torneos}" for="torneos" />
+                        <p:selectOneMenu id="torneos" value="#{juegaController.selected.torneos}" required="true" requiredMessage="#{bundle.EditJuegaRequiredMessage_torneos}">
+                            <f:selectItems value="#{torneosController.itemsAvailableSelectOne}"
+                                           var="torneosItem"
+                                           itemValue="#{torneosItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{juegaController.create}" value="#{bundle.Save}" update="display,:JuegaListForm:datalist,:growl" oncomplete="handleSubmit(args,'JuegaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="JuegaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

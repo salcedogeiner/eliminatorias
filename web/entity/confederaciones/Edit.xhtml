@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ConfederacionesEditDlg" widgetVar="ConfederacionesEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditConfederacionesTitle}">
+            <h:form id="ConfederacionesEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{confederacionesController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditConfederacionesLabel_codConfederacion}" for="codConfederacion" />
+                        <p:inputText id="codConfederacion" value="#{confederacionesController.selected.codConfederacion}" title="#{bundle.EditConfederacionesTitle_codConfederacion}" required="true" requiredMessage="#{bundle.EditConfederacionesRequiredMessage_codConfederacion}"/>
+                        <p:outputLabel value="#{bundle.EditConfederacionesLabel_nomConfederacion}" for="nomConfederacion" />
+                        <p:inputText id="nomConfederacion" value="#{confederacionesController.selected.nomConfederacion}" title="#{bundle.EditConfederacionesTitle_nomConfederacion}" required="true" requiredMessage="#{bundle.EditConfederacionesRequiredMessage_nomConfederacion}"/>
+                        <p:outputLabel value="#{bundle.EditConfederacionesLabel_abrConfederacion}" for="abrConfederacion" />
+                        <p:inputText id="abrConfederacion" value="#{confederacionesController.selected.abrConfederacion}" title="#{bundle.EditConfederacionesTitle_abrConfederacion}" required="true" requiredMessage="#{bundle.EditConfederacionesRequiredMessage_abrConfederacion}"/>
+                        <p:outputLabel value="#{bundle.EditConfederacionesLabel_cupos}" for="cupos" />
+                        <p:inputText id="cupos" value="#{confederacionesController.selected.cupos}" title="#{bundle.EditConfederacionesTitle_cupos}" required="true" requiredMessage="#{bundle.EditConfederacionesRequiredMessage_cupos}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{confederacionesController.update}" value="#{bundle.Save}" update="display,:ConfederacionesListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ConfederacionesEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ConfederacionesEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

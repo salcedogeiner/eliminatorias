@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EquiposEditDlg" widgetVar="EquiposEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditEquiposTitle}">
+            <h:form id="EquiposEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{equiposController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditEquiposLabel_codEquipo}" for="codEquipo" />
+                        <p:inputText id="codEquipo" value="#{equiposController.selected.codEquipo}" title="#{bundle.EditEquiposTitle_codEquipo}" required="true" requiredMessage="#{bundle.EditEquiposRequiredMessage_codEquipo}"/>
+                        <p:outputLabel value="#{bundle.EditEquiposLabel_nomEquipo}" for="nomEquipo" />
+                        <p:inputText id="nomEquipo" value="#{equiposController.selected.nomEquipo}" title="#{bundle.EditEquiposTitle_nomEquipo}" required="true" requiredMessage="#{bundle.EditEquiposRequiredMessage_nomEquipo}"/>
+                        <p:outputLabel value="#{bundle.EditEquiposLabel_codConfederacion}" for="codConfederacion" />
+                        <p:selectOneMenu id="codConfederacion" value="#{equiposController.selected.codConfederacion}" required="true" requiredMessage="#{bundle.EditEquiposRequiredMessage_codConfederacion}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{confederacionesController.itemsAvailableSelectOne}"
+                                           var="codConfederacionItem"
+                                           itemValue="#{codConfederacionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEquiposLabel_codPais}" for="codPais" />
+                        <p:selectOneMenu id="codPais" value="#{equiposController.selected.codPais}" required="true" requiredMessage="#{bundle.EditEquiposRequiredMessage_codPais}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{paisesController.itemsAvailableSelectOne}"
+                                           var="codPaisItem"
+                                           itemValue="#{codPaisItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEquiposLabel_codTecnico}" for="codTecnico" />
+                        <p:selectOneMenu id="codTecnico" value="#{equiposController.selected.codTecnico}" required="true" requiredMessage="#{bundle.EditEquiposRequiredMessage_codTecnico}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tecnicosController.itemsAvailableSelectOne}"
+                                           var="codTecnicoItem"
+                                           itemValue="#{codTecnicoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{equiposController.update}" value="#{bundle.Save}" update="display,:EquiposListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EquiposEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EquiposEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
