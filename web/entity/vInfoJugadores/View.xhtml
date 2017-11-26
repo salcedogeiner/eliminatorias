@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VInfoJugadoresViewDlg" widgetVar="VInfoJugadoresViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewVInfoJugadoresTitle}">
+            <h:form id="VInfoJugadoresViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vInfoJugadoresController.selected != null}">
+                        <h:outputText value="#{bundle.ViewVInfoJugadoresLabel_codEquipo}"/>
+                        <h:outputText value="#{vInfoJugadoresController.selected.codEquipo}" title="#{bundle.ViewVInfoJugadoresTitle_codEquipo}"/>
+                        <h:outputText value="#{bundle.ViewVInfoJugadoresLabel_nomEquipo}"/>
+                        <h:outputText value="#{vInfoJugadoresController.selected.nomEquipo}" title="#{bundle.ViewVInfoJugadoresTitle_nomEquipo}"/>
+                        <h:outputText value="#{bundle.ViewVInfoJugadoresLabel_codConfederacion}"/>
+                        <h:outputText value="#{vInfoJugadoresController.selected.codConfederacion}" title="#{bundle.ViewVInfoJugadoresTitle_codConfederacion}"/>
+                        <h:outputText value="#{bundle.ViewVInfoJugadoresLabel_codJugador}"/>
+                        <h:outputText value="#{vInfoJugadoresController.selected.codJugador}" title="#{bundle.ViewVInfoJugadoresTitle_codJugador}"/>
+                        <h:outputText value="#{bundle.ViewVInfoJugadoresLabel_nomJugador}"/>
+                        <h:outputText value="#{vInfoJugadoresController.selected.nomJugador}" title="#{bundle.ViewVInfoJugadoresTitle_nomJugador}"/>
+                        <h:outputText value="#{bundle.ViewVInfoJugadoresLabel_apeJugador}"/>
+                        <h:outputText value="#{vInfoJugadoresController.selected.apeJugador}" title="#{bundle.ViewVInfoJugadoresTitle_apeJugador}"/>
+                        <h:outputText value="#{bundle.ViewVInfoJugadoresLabel_goles}"/>
+                        <h:outputText value="#{vInfoJugadoresController.selected.goles}" title="#{bundle.ViewVInfoJugadoresTitle_goles}"/>
+                        <h:outputText value="#{bundle.ViewVInfoJugadoresLabel_amarillas}"/>
+                        <h:outputText value="#{vInfoJugadoresController.selected.amarillas}" title="#{bundle.ViewVInfoJugadoresTitle_amarillas}"/>
+                        <h:outputText value="#{bundle.ViewVInfoJugadoresLabel_rojas}"/>
+                        <h:outputText value="#{vInfoJugadoresController.selected.rojas}" title="#{bundle.ViewVInfoJugadoresTitle_rojas}"/>
+                        <h:outputText value="#{bundle.ViewVInfoJugadoresLabel_partidos}"/>
+                        <h:outputText value="#{vInfoJugadoresController.selected.partidos}" title="#{bundle.ViewVInfoJugadoresTitle_partidos}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="VInfoJugadoresViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

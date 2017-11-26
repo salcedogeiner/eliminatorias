@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VGolesEquipoEnfrentaViewDlg" widgetVar="VGolesEquipoEnfrentaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewVGolesEquipoEnfrentaTitle}">
+            <h:form id="VGolesEquipoEnfrentaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vGolesEquipoEnfrentaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewVGolesEquipoEnfrentaLabel_codEquipo}"/>
+                        <h:outputText value="#{vGolesEquipoEnfrentaController.selected.codEquipo}" title="#{bundle.ViewVGolesEquipoEnfrentaTitle_codEquipo}"/>
+                        <h:outputText value="#{bundle.ViewVGolesEquipoEnfrentaLabel_codEstadio}"/>
+                        <h:outputText value="#{vGolesEquipoEnfrentaController.selected.codEstadio}" title="#{bundle.ViewVGolesEquipoEnfrentaTitle_codEstadio}"/>
+                        <h:outputText value="#{bundle.ViewVGolesEquipoEnfrentaLabel_codEquipoLocal}"/>
+                        <h:outputText value="#{vGolesEquipoEnfrentaController.selected.codEquipoLocal}" title="#{bundle.ViewVGolesEquipoEnfrentaTitle_codEquipoLocal}"/>
+                        <h:outputText value="#{bundle.ViewVGolesEquipoEnfrentaLabel_codEquipoVisitante}"/>
+                        <h:outputText value="#{vGolesEquipoEnfrentaController.selected.codEquipoVisitante}" title="#{bundle.ViewVGolesEquipoEnfrentaTitle_codEquipoVisitante}"/>
+                        <h:outputText value="#{bundle.ViewVGolesEquipoEnfrentaLabel_FEnfrenta}"/>
+                        <h:outputText value="#{vGolesEquipoEnfrentaController.selected.FEnfrenta}" title="#{bundle.ViewVGolesEquipoEnfrentaTitle_FEnfrenta}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewVGolesEquipoEnfrentaLabel_goles}"/>
+                        <h:outputText value="#{vGolesEquipoEnfrentaController.selected.goles}" title="#{bundle.ViewVGolesEquipoEnfrentaTitle_goles}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="VGolesEquipoEnfrentaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

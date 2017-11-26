@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VInfoCalendarioViewDlg" widgetVar="VInfoCalendarioViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewVInfoCalendarioTitle}">
+            <h:form id="VInfoCalendarioViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vInfoCalendarioController.selected != null}">
+                        <h:outputText value="#{bundle.ViewVInfoCalendarioLabel_FEnfrenta}"/>
+                        <h:outputText value="#{vInfoCalendarioController.selected.FEnfrenta}" title="#{bundle.ViewVInfoCalendarioTitle_FEnfrenta}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewVInfoCalendarioLabel_nomEquipoLocal}"/>
+                        <h:outputText value="#{vInfoCalendarioController.selected.nomEquipoLocal}" title="#{bundle.ViewVInfoCalendarioTitle_nomEquipoLocal}"/>
+                        <h:outputText value="#{bundle.ViewVInfoCalendarioLabel_nomEquipoVisitante}"/>
+                        <h:outputText value="#{vInfoCalendarioController.selected.nomEquipoVisitante}" title="#{bundle.ViewVInfoCalendarioTitle_nomEquipoVisitante}"/>
+                        <h:outputText value="#{bundle.ViewVInfoCalendarioLabel_nomEstadio}"/>
+                        <h:outputText value="#{vInfoCalendarioController.selected.nomEstadio}" title="#{bundle.ViewVInfoCalendarioTitle_nomEstadio}"/>
+                        <h:outputText value="#{bundle.ViewVInfoCalendarioLabel_golesLocal}"/>
+                        <h:outputText value="#{vInfoCalendarioController.selected.golesLocal}" title="#{bundle.ViewVInfoCalendarioTitle_golesLocal}"/>
+                        <h:outputText value="#{bundle.ViewVInfoCalendarioLabel_golesVisitante}"/>
+                        <h:outputText value="#{vInfoCalendarioController.selected.golesVisitante}" title="#{bundle.ViewVInfoCalendarioTitle_golesVisitante}"/>
+                        <h:outputText value="#{bundle.ViewVInfoCalendarioLabel_nomArbitro}"/>
+                        <h:outputText value="#{vInfoCalendarioController.selected.nomArbitro}" title="#{bundle.ViewVInfoCalendarioTitle_nomArbitro}"/>
+                        <h:outputText value="#{bundle.ViewVInfoCalendarioLabel_apeArbitro}"/>
+                        <h:outputText value="#{vInfoCalendarioController.selected.apeArbitro}" title="#{bundle.ViewVInfoCalendarioTitle_apeArbitro}"/>
+                        <h:outputText value="#{bundle.ViewVInfoCalendarioLabel_nacionalidadArbitro}"/>
+                        <h:outputText value="#{vInfoCalendarioController.selected.nacionalidadArbitro}" title="#{bundle.ViewVInfoCalendarioTitle_nacionalidadArbitro}"/>
+                        <h:outputText value="#{bundle.ViewVInfoCalendarioLabel_nomCiudad}"/>
+                        <h:outputText value="#{vInfoCalendarioController.selected.nomCiudad}" title="#{bundle.ViewVInfoCalendarioTitle_nomCiudad}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="VInfoCalendarioViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

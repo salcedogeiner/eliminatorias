@@ -7,6 +7,7 @@
 
     <h:head>
         <title><ui:insert name="title">Default Title</ui:insert></title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
         <h:outputStylesheet library="css" name="jsfcrud.css"/>
         <h:outputScript library="js" name="jsfcrud.js"/>
     </h:head>
@@ -34,8 +35,16 @@
                             <p:menuitem value="Participa" outcome="/entity/participa/List.xhtml" />
                             <p:menuitem value="Tecnicos" outcome="/entity/tecnicos/List.xhtml" />
                             <p:menuitem value="Tiene" outcome="/entity/tiene/List.xhtml" />
-                            <p:menuitem value="Torneos" outcome="/entity/torneos/List.xhtml" />
+                            <p:menuitem value="Torneos" outcome="/entity/torneos/List.xhtml" />                            
                         </p:submenu>
+                        <p:submenu label="#{bundle.Torneo}" icon="ui-icon-calendar">
+                            <p:menuitem value="GolesEquipoEnfrenta" outcome="/entity/vGolesEquipoEnfrenta/List.xhtml" />
+                            <p:menuitem value="InfoCalendario" outcome="/entity/vInfoCalendario/List.xhtml" />
+                            <p:menuitem value="InfoEquiposGolesPuntos" outcome="/entity/vInfoEquiposGolesPuntos/List.xhtml" />
+                            <p:menuitem value="InfoJugadores" outcome="/entity/vInfoJugadores/List.xhtml" />
+                            <p:menuitem value="InfoTecnicos" outcome="/entity/vInfoTecnicos/List.xhtml" />
+                        </p:submenu>
+                        
                     </p:menubar>
                 </h:form>
             </p:layoutUnit>

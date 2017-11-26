@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VInfoCalendarioCreateDlg" widgetVar="VInfoCalendarioCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateVInfoCalendarioTitle}">
+            <h:form id="VInfoCalendarioCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vInfoCalendarioController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateVInfoCalendarioLabel_FEnfrenta}" for="FEnfrenta" />
+                        <p:calendar id="FEnfrenta" pattern="MM/dd/yyyy" value="#{vInfoCalendarioController.selected.FEnfrenta}" title="#{bundle.EditVInfoCalendarioTitle_FEnfrenta}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateVInfoCalendarioLabel_nomEquipoLocal}" for="nomEquipoLocal" />
+                        <p:inputText id="nomEquipoLocal" value="#{vInfoCalendarioController.selected.nomEquipoLocal}" title="#{bundle.CreateVInfoCalendarioTitle_nomEquipoLocal}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoCalendarioLabel_nomEquipoVisitante}" for="nomEquipoVisitante" />
+                        <p:inputText id="nomEquipoVisitante" value="#{vInfoCalendarioController.selected.nomEquipoVisitante}" title="#{bundle.CreateVInfoCalendarioTitle_nomEquipoVisitante}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoCalendarioLabel_nomEstadio}" for="nomEstadio" />
+                        <p:inputText id="nomEstadio" value="#{vInfoCalendarioController.selected.nomEstadio}" title="#{bundle.CreateVInfoCalendarioTitle_nomEstadio}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoCalendarioLabel_golesLocal}" for="golesLocal" />
+                        <p:inputText id="golesLocal" value="#{vInfoCalendarioController.selected.golesLocal}" title="#{bundle.CreateVInfoCalendarioTitle_golesLocal}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoCalendarioLabel_golesVisitante}" for="golesVisitante" />
+                        <p:inputText id="golesVisitante" value="#{vInfoCalendarioController.selected.golesVisitante}" title="#{bundle.CreateVInfoCalendarioTitle_golesVisitante}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoCalendarioLabel_nomArbitro}" for="nomArbitro" />
+                        <p:inputText id="nomArbitro" value="#{vInfoCalendarioController.selected.nomArbitro}" title="#{bundle.CreateVInfoCalendarioTitle_nomArbitro}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoCalendarioLabel_apeArbitro}" for="apeArbitro" />
+                        <p:inputText id="apeArbitro" value="#{vInfoCalendarioController.selected.apeArbitro}" title="#{bundle.CreateVInfoCalendarioTitle_apeArbitro}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoCalendarioLabel_nacionalidadArbitro}" for="nacionalidadArbitro" />
+                        <p:inputText id="nacionalidadArbitro" value="#{vInfoCalendarioController.selected.nacionalidadArbitro}" title="#{bundle.CreateVInfoCalendarioTitle_nacionalidadArbitro}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoCalendarioLabel_nomCiudad}" for="nomCiudad" />
+                        <p:inputText id="nomCiudad" value="#{vInfoCalendarioController.selected.nomCiudad}" title="#{bundle.CreateVInfoCalendarioTitle_nomCiudad}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{vInfoCalendarioController.create}" value="#{bundle.Save}" update="display,:VInfoCalendarioListForm:datalist,:growl" oncomplete="handleSubmit(args,'VInfoCalendarioCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="VInfoCalendarioCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

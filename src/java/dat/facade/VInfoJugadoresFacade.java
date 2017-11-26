@@ -5,7 +5,7 @@
  */
 package dat.facade;
 
-import dat.entity.Torneos;
+import dat.entity.VInfoJugadores;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author Salcedo
  */
 @Stateless
-public class TorneosFacade extends AbstractFacade<Torneos> {
+public class VInfoJugadoresFacade extends AbstractFacade<VInfoJugadores> {
 
     @PersistenceContext(unitName = "eliminatoriasPU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class TorneosFacade extends AbstractFacade<Torneos> {
         return em;
     }
 
-    public TorneosFacade() {
-        super(Torneos.class);
+    public VInfoJugadoresFacade() {
+        super(VInfoJugadores.class);
     }
     
 }

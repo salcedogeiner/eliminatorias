@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VInfoEquiposGolesPuntosViewDlg" widgetVar="VInfoEquiposGolesPuntosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewVInfoEquiposGolesPuntosTitle}">
+            <h:form id="VInfoEquiposGolesPuntosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vInfoEquiposGolesPuntosController.selected != null}">
+                        <h:outputText value="#{bundle.ViewVInfoEquiposGolesPuntosLabel_codEquipo}"/>
+                        <h:outputText value="#{vInfoEquiposGolesPuntosController.selected.codEquipo}" title="#{bundle.ViewVInfoEquiposGolesPuntosTitle_codEquipo}"/>
+                        <h:outputText value="#{bundle.ViewVInfoEquiposGolesPuntosLabel_nomEquipo}"/>
+                        <h:outputText value="#{vInfoEquiposGolesPuntosController.selected.nomEquipo}" title="#{bundle.ViewVInfoEquiposGolesPuntosTitle_nomEquipo}"/>
+                        <h:outputText value="#{bundle.ViewVInfoEquiposGolesPuntosLabel_puntos}"/>
+                        <h:outputText value="#{vInfoEquiposGolesPuntosController.selected.puntos}" title="#{bundle.ViewVInfoEquiposGolesPuntosTitle_puntos}"/>
+                        <h:outputText value="#{bundle.ViewVInfoEquiposGolesPuntosLabel_dg}"/>
+                        <h:outputText value="#{vInfoEquiposGolesPuntosController.selected.dg}" title="#{bundle.ViewVInfoEquiposGolesPuntosTitle_dg}"/>
+                        <h:outputText value="#{bundle.ViewVInfoEquiposGolesPuntosLabel_gf}"/>
+                        <h:outputText value="#{vInfoEquiposGolesPuntosController.selected.gf}" title="#{bundle.ViewVInfoEquiposGolesPuntosTitle_gf}"/>
+                        <h:outputText value="#{bundle.ViewVInfoEquiposGolesPuntosLabel_gc}"/>
+                        <h:outputText value="#{vInfoEquiposGolesPuntosController.selected.gc}" title="#{bundle.ViewVInfoEquiposGolesPuntosTitle_gc}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="VInfoEquiposGolesPuntosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

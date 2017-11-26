@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VInfoTecnicosEditDlg" widgetVar="VInfoTecnicosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditVInfoTecnicosTitle}">
+            <h:form id="VInfoTecnicosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vInfoTecnicosController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditVInfoTecnicosLabel_codEquipo}" for="codEquipo" />
+                        <p:inputText id="codEquipo" value="#{vInfoTecnicosController.selected.codEquipo}" title="#{bundle.EditVInfoTecnicosTitle_codEquipo}" />
+                        <p:outputLabel value="#{bundle.EditVInfoTecnicosLabel_nomEquipo}" for="nomEquipo" />
+                        <p:inputText id="nomEquipo" value="#{vInfoTecnicosController.selected.nomEquipo}" title="#{bundle.EditVInfoTecnicosTitle_nomEquipo}" />
+                        <p:outputLabel value="#{bundle.EditVInfoTecnicosLabel_codTecnico}" for="codTecnico" />
+                        <p:inputText id="codTecnico" value="#{vInfoTecnicosController.selected.codTecnico}" title="#{bundle.EditVInfoTecnicosTitle_codTecnico}" />
+                        <p:outputLabel value="#{bundle.EditVInfoTecnicosLabel_nomTecnico}" for="nomTecnico" />
+                        <p:inputText id="nomTecnico" value="#{vInfoTecnicosController.selected.nomTecnico}" title="#{bundle.EditVInfoTecnicosTitle_nomTecnico}" />
+                        <p:outputLabel value="#{bundle.EditVInfoTecnicosLabel_apeTecnico}" for="apeTecnico" />
+                        <p:inputText id="apeTecnico" value="#{vInfoTecnicosController.selected.apeTecnico}" title="#{bundle.EditVInfoTecnicosTitle_apeTecnico}" />
+                        <p:outputLabel value="#{bundle.EditVInfoTecnicosLabel_codPais}" for="codPais" />
+                        <p:inputText id="codPais" value="#{vInfoTecnicosController.selected.codPais}" title="#{bundle.EditVInfoTecnicosTitle_codPais}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{vInfoTecnicosController.update}" value="#{bundle.Save}" update="display,:VInfoTecnicosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'VInfoTecnicosEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="VInfoTecnicosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VInfoTecnicosViewDlg" widgetVar="VInfoTecnicosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewVInfoTecnicosTitle}">
+            <h:form id="VInfoTecnicosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vInfoTecnicosController.selected != null}">
+                        <h:outputText value="#{bundle.ViewVInfoTecnicosLabel_codEquipo}"/>
+                        <h:outputText value="#{vInfoTecnicosController.selected.codEquipo}" title="#{bundle.ViewVInfoTecnicosTitle_codEquipo}"/>
+                        <h:outputText value="#{bundle.ViewVInfoTecnicosLabel_nomEquipo}"/>
+                        <h:outputText value="#{vInfoTecnicosController.selected.nomEquipo}" title="#{bundle.ViewVInfoTecnicosTitle_nomEquipo}"/>
+                        <h:outputText value="#{bundle.ViewVInfoTecnicosLabel_codTecnico}"/>
+                        <h:outputText value="#{vInfoTecnicosController.selected.codTecnico}" title="#{bundle.ViewVInfoTecnicosTitle_codTecnico}"/>
+                        <h:outputText value="#{bundle.ViewVInfoTecnicosLabel_nomTecnico}"/>
+                        <h:outputText value="#{vInfoTecnicosController.selected.nomTecnico}" title="#{bundle.ViewVInfoTecnicosTitle_nomTecnico}"/>
+                        <h:outputText value="#{bundle.ViewVInfoTecnicosLabel_apeTecnico}"/>
+                        <h:outputText value="#{vInfoTecnicosController.selected.apeTecnico}" title="#{bundle.ViewVInfoTecnicosTitle_apeTecnico}"/>
+                        <h:outputText value="#{bundle.ViewVInfoTecnicosLabel_codPais}"/>
+                        <h:outputText value="#{vInfoTecnicosController.selected.codPais}" title="#{bundle.ViewVInfoTecnicosTitle_codPais}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="VInfoTecnicosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

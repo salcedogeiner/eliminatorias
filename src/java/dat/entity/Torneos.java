@@ -149,7 +149,7 @@ public class Torneos implements Serializable {
 
     @Override
     public String toString() {
-        return "dat.entity.Torneos[ idTorneo=" + idTorneo + " ]";
+        return "idTorneo=" + idTorneo + " nom_torneo="+nomTorneo;
     }
     
 }

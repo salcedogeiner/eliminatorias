@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VInfoJugadoresCreateDlg" widgetVar="VInfoJugadoresCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateVInfoJugadoresTitle}">
+            <h:form id="VInfoJugadoresCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vInfoJugadoresController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateVInfoJugadoresLabel_codEquipo}" for="codEquipo" />
+                        <p:inputText id="codEquipo" value="#{vInfoJugadoresController.selected.codEquipo}" title="#{bundle.CreateVInfoJugadoresTitle_codEquipo}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoJugadoresLabel_nomEquipo}" for="nomEquipo" />
+                        <p:inputText id="nomEquipo" value="#{vInfoJugadoresController.selected.nomEquipo}" title="#{bundle.CreateVInfoJugadoresTitle_nomEquipo}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoJugadoresLabel_codConfederacion}" for="codConfederacion" />
+                        <p:inputText id="codConfederacion" value="#{vInfoJugadoresController.selected.codConfederacion}" title="#{bundle.CreateVInfoJugadoresTitle_codConfederacion}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoJugadoresLabel_codJugador}" for="codJugador" />
+                        <p:inputText id="codJugador" value="#{vInfoJugadoresController.selected.codJugador}" title="#{bundle.CreateVInfoJugadoresTitle_codJugador}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoJugadoresLabel_nomJugador}" for="nomJugador" />
+                        <p:inputText id="nomJugador" value="#{vInfoJugadoresController.selected.nomJugador}" title="#{bundle.CreateVInfoJugadoresTitle_nomJugador}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoJugadoresLabel_apeJugador}" for="apeJugador" />
+                        <p:inputText id="apeJugador" value="#{vInfoJugadoresController.selected.apeJugador}" title="#{bundle.CreateVInfoJugadoresTitle_apeJugador}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoJugadoresLabel_goles}" for="goles" />
+                        <p:inputText id="goles" value="#{vInfoJugadoresController.selected.goles}" title="#{bundle.CreateVInfoJugadoresTitle_goles}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoJugadoresLabel_amarillas}" for="amarillas" />
+                        <p:inputText id="amarillas" value="#{vInfoJugadoresController.selected.amarillas}" title="#{bundle.CreateVInfoJugadoresTitle_amarillas}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoJugadoresLabel_rojas}" for="rojas" />
+                        <p:inputText id="rojas" value="#{vInfoJugadoresController.selected.rojas}" title="#{bundle.CreateVInfoJugadoresTitle_rojas}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoJugadoresLabel_partidos}" for="partidos" />
+                        <p:inputText id="partidos" value="#{vInfoJugadoresController.selected.partidos}" title="#{bundle.CreateVInfoJugadoresTitle_partidos}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{vInfoJugadoresController.create}" value="#{bundle.Save}" update="display,:VInfoJugadoresListForm:datalist,:growl" oncomplete="handleSubmit(args,'VInfoJugadoresCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="VInfoJugadoresCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
