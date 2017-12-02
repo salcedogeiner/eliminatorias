@@ -37,7 +37,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class VInfoJugadores implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
+    
     @Size(max = 3)
     @Column(name = "cod_equipo")
     private String codEquipo;
@@ -46,6 +46,7 @@ public class VInfoJugadores implements Serializable {
     private String nomEquipo;
     @Column(name = "cod_confederacion")
     private Integer codConfederacion;
+    @Id
     @Column(name = "cod_jugador")
     private Integer codJugador;
     @Size(max = 30)
