@@ -19,12 +19,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+
 @Named("vInfoTecnicosController")
 @SessionScoped
 public class VInfoTecnicosController implements Serializable {
 
-    @EJB
-    private dat.facade.VInfoTecnicosFacade ejbFacade;
+
+    @EJB private dat.facade.VInfoTecnicosFacade ejbFacade;
     private List<VInfoTecnicos> items = null;
     private VInfoTecnicos selected;
 
@@ -109,7 +110,7 @@ public class VInfoTecnicosController implements Serializable {
         }
     }
 
-    public VInfoTecnicos getVInfoTecnicos(java.lang.String id) {
+    public VInfoTecnicos getVInfoTecnicos(java.lang.Integer id) {
         return getFacade().find(id);
     }
 
@@ -121,7 +122,7 @@ public class VInfoTecnicosController implements Serializable {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = VInfoTecnicos.class)
+    @FacesConverter(forClass=VInfoTecnicos.class)
     public static class VInfoTecnicosControllerConverter implements Converter {
 
         @Override
@@ -129,18 +130,18 @@ public class VInfoTecnicosController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            VInfoTecnicosController controller = (VInfoTecnicosController) facesContext.getApplication().getELResolver().
+            VInfoTecnicosController controller = (VInfoTecnicosController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "vInfoTecnicosController");
             return controller.getVInfoTecnicos(getKey(value));
         }
 
-        java.lang.String getKey(String value) {
-            java.lang.String key;
-            key = value;
+        java.lang.Integer getKey(String value) {
+            java.lang.Integer key;
+            key = Integer.valueOf(value);
             return key;
         }
 
-        String getStringKey(java.lang.String value) {
+        String getStringKey(java.lang.Integer value) {
             StringBuilder sb = new StringBuilder();
             sb.append(value);
             return sb.toString();
@@ -153,7 +154,7 @@ public class VInfoTecnicosController implements Serializable {
             }
             if (object instanceof VInfoTecnicos) {
                 VInfoTecnicos o = (VInfoTecnicos) object;
-                return getStringKey(o.getCodEquipo());
+                return getStringKey(o.getCodTecnico());
             } else {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), VInfoTecnicos.class.getName()});
                 return null;

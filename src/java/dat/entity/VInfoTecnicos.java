@@ -33,13 +33,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class VInfoTecnicos implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
+    
     @Size(max = 3)
     @Column(name = "cod_equipo")
     private String codEquipo;
     @Size(max = 30)
     @Column(name = "nom_equipo")
     private String nomEquipo;
+    @Id
     @Column(name = "cod_tecnico")
     private Integer codTecnico;
     @Size(max = 30)
