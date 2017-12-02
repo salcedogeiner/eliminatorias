@@ -27,25 +27,25 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
+                        <p:column filterBy="#{item.codTecnico}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTecnicosTitle_codTecnico}"/>
                             </f:facet>
                             <h:outputText value="#{item.codTecnico}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.nomTecnico}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTecnicosTitle_nomTecnico}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomTecnico}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.apeTecnico}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTecnicosTitle_apeTecnico}"/>
                             </f:facet>
                             <h:outputText value="#{item.apeTecnico}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.codPais}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTecnicosTitle_codPais}"/>
                             </f:facet>

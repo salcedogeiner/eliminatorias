@@ -27,19 +27,19 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
+                        <p:column filterBy="#{item.codEstadio}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEstadiosTitle_codEstadio}"/>
                             </f:facet>
                             <h:outputText value="#{item.codEstadio}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.nomEstadio}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEstadiosTitle_nomEstadio}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomEstadio}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.codCiudad.codCiudad}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEstadiosTitle_codCiudad}"/>
                             </f:facet>

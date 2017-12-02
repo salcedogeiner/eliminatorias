@@ -27,31 +27,31 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
+                        <p:column filterBy="#{item.codEquipo}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEquiposTitle_codEquipo}"/>
                             </f:facet>
                             <h:outputText value="#{item.codEquipo}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.nomEquipo}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEquiposTitle_nomEquipo}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomEquipo}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.codConfederacion.codConfederacion}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEquiposTitle_codConfederacion}"/>
                             </f:facet>
                             <h:outputText value="#{item.codConfederacion}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.codPais.codPais}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEquiposTitle_codPais}"/>
                             </f:facet>
                             <h:outputText value="#{item.codPais}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.codTecnico.codTecnico}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEquiposTitle_codTecnico}"/>
                             </f:facet>

@@ -27,25 +27,25 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
+                        <p:column filterBy="#{item.jugadoresPK.codJugador}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListJugadoresTitle_jugadoresPK_codJugador}"/>
                             </f:facet>
                             <h:outputText value="#{item.jugadoresPK.codJugador}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.nomJugador}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListJugadoresTitle_nomJugador}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomJugador}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.apeJugador}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListJugadoresTitle_apeJugador}"/>
                             </f:facet>
                             <h:outputText value="#{item.apeJugador}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.FNac}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListJugadoresTitle_FNac}"/>
                             </f:facet>
@@ -53,19 +53,19 @@
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.posicionJugador}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListJugadoresTitle_posicionJugador}"/>
                             </f:facet>
                             <h:outputText value="#{item.posicionJugador}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.jugadoresPK.codEquipo}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListJugadoresTitle_equipos}"/>
                             </f:facet>
                             <h:outputText value="#{item.equipos}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.codPais.codPais}" >
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListJugadoresTitle_codPais}"/>
                             </f:facet>
