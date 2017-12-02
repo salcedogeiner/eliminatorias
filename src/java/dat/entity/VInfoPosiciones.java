@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Salcedo
  */
 @Entity
-@Table(name = "v_info_posiciones")
+@Table(name = "v_posiciones")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "VInfoPosiciones.findAll", query = "SELECT v FROM VInfoPosiciones v")
@@ -34,10 +34,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class VInfoPosiciones implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
+    
     @Column(name = "posicion")
     private BigInteger posicion;
     @Size(max = 3)
+    @Id
     @Column(name = "cod_equipo")
     private String codEquipo;
     @Size(max = 30)

@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Salcedo
  */
 @Entity
-@Table(name = "v_info_clasificados")
+@Table(name = "v_clasificados")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "VInfoClasificados.findAll", query = "SELECT v FROM VInfoClasificados v")

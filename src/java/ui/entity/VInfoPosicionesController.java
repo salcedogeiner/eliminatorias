@@ -6,7 +6,6 @@ import ui.entity.util.JsfUtil.PersistAction;
 import dat.facade.VInfoPosicionesFacade;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -110,7 +109,7 @@ public class VInfoPosicionesController implements Serializable {
         }
     }
 
-    public VInfoPosiciones getVInfoPosiciones(java.math.BigInteger id) {
+    public VInfoPosiciones getVInfoPosiciones(java.lang.String id) {
         return getFacade().find(id);
     }
 
@@ -135,13 +134,13 @@ public class VInfoPosicionesController implements Serializable {
             return controller.getVInfoPosiciones(getKey(value));
         }
 
-        java.math.BigInteger getKey(String value) {
-            java.math.BigInteger key;
-            key = new BigInteger(value);
+        java.lang.String getKey(String value) {
+            java.lang.String key;
+            key = value;
             return key;
         }
 
-        String getStringKey(java.math.BigInteger value) {
+        String getStringKey(java.lang.String value) {
             StringBuilder sb = new StringBuilder();
             sb.append(value);
             return sb.toString();
@@ -154,7 +153,7 @@ public class VInfoPosicionesController implements Serializable {
             }
             if (object instanceof VInfoPosiciones) {
                 VInfoPosiciones o = (VInfoPosiciones) object;
-                return getStringKey(o.getPosicion());
+                return getStringKey(o.getCodEquipo());
             } else {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), VInfoPosiciones.class.getName()});
                 return null;
