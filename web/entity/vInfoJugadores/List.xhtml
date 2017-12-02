@@ -19,7 +19,7 @@
                     <p:dataTable id="datalist" value="#{vInfoJugadoresController.items}" var="item"
                                  selectionMode="single" selection="#{vInfoJugadoresController.selected}"
                                  paginator="true"
-                                 rowKey="#{item.codEquipo}"
+                                 rowKey="#{item.codJugador}"
                                  rows="10"
                                  rowsPerPageTemplate="10,20,30,40,50"
                                  >
@@ -27,61 +27,61 @@
                         <p:ajax event="rowSelect"   update=" viewButton"/>
                         <p:ajax event="rowUnselect" update=" viewButton "/>
 
-                        <p:column>
+                        <p:column filterBy="#{item.codEquipo}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoJugadoresTitle_codEquipo}"/>
                             </f:facet>
                             <h:outputText value="#{item.codEquipo}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.nomEquipo}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoJugadoresTitle_nomEquipo}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomEquipo}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.codConfederacion}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoJugadoresTitle_codConfederacion}"/>
                             </f:facet>
                             <h:outputText value="#{item.codConfederacion}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.codJugador}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoJugadoresTitle_codJugador}"/>
                             </f:facet>
                             <h:outputText value="#{item.codJugador}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.nomJugador}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoJugadoresTitle_nomJugador}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomJugador}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.apeJugador}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoJugadoresTitle_apeJugador}"/>
                             </f:facet>
                             <h:outputText value="#{item.apeJugador}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.goles}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoJugadoresTitle_goles}"/>
                             </f:facet>
                             <h:outputText value="#{item.goles}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.amarillas}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoJugadoresTitle_amarillas}"/>
                             </f:facet>
                             <h:outputText value="#{item.amarillas}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.rojas}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoJugadoresTitle_rojas}"/>
                             </f:facet>
                             <h:outputText value="#{item.rojas}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.partidos}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoJugadoresTitle_partidos}"/>
                             </f:facet>

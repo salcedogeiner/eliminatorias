@@ -36,6 +36,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "VGolesEquipoEnfrenta.findByGoles", query = "SELECT v FROM VGolesEquipoEnfrenta v WHERE v.goles = :goles")})
 public class VGolesEquipoEnfrenta implements Serializable {
 
+    @Column(name = "autogoles")
+    private BigInteger autogoles;
+    @Column(name = "golw")
+    private BigInteger golw;
+
     private static final long serialVersionUID = 1L;
     @Id
     @Size(max = 3)
@@ -104,6 +109,22 @@ public class VGolesEquipoEnfrenta implements Serializable {
 
     public void setGoles(BigInteger goles) {
         this.goles = goles;
+    }
+
+    public BigInteger getAutogoles() {
+        return autogoles;
+    }
+
+    public void setAutogoles(BigInteger autogoles) {
+        this.autogoles = autogoles;
+    }
+
+    public BigInteger getGolw() {
+        return golw;
+    }
+
+    public void setGolw(BigInteger golw) {
+        this.golw = golw;
     }
     
 }

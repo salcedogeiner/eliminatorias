@@ -27,7 +27,7 @@
                         <p:ajax event="rowSelect"   update="viewButton"/>
                         <p:ajax event="rowUnselect" update="viewButton"/>
 
-                        <p:column>
+                        <p:column filterBy="#{item.FEnfrenta}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoCalendarioTitle_FEnfrenta}"/>
                             </f:facet>
@@ -35,62 +35,62 @@
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.nomEquipoLocal}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoCalendarioTitle_nomEquipoLocal}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomEquipoLocal}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.nomEquipoVisitante}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoCalendarioTitle_nomEquipoVisitante}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomEquipoVisitante}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.nomEstadio}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoCalendarioTitle_nomEstadio}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomEstadio}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.golesLocal}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoCalendarioTitle_golesLocal}"/>
                             </f:facet>
                             <h:outputText value="#{item.golesLocal}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.golesVisitante}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoCalendarioTitle_golesVisitante}"/>
                             </f:facet>
                             <h:outputText value="#{item.golesVisitante}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.nomArbitro}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoCalendarioTitle_nomArbitro}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomArbitro}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.apeArbitro}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoCalendarioTitle_apeArbitro}"/>
                             </f:facet>
                             <h:outputText value="#{item.apeArbitro}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.nacionalidadArbitro}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoCalendarioTitle_nacionalidadArbitro}"/>
                             </f:facet>
                             <h:outputText value="#{item.nacionalidadArbitro}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.nomCiudad}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVInfoCalendarioTitle_nomCiudad}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomCiudad}"/>
                         </p:column>
                         <f:facet name="footer">
-                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":VInfoCalendarioViewForm" oncomplete="PF('VInfoCalendarioViewDialog').show()" disabled="#{empty vInfoCalendarioController.selected}"/>                            
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":VInfoCalendarioViewForm" oncomplete="PF('VInfoCalendarioViewDialog').show()" disabled="#{empty vInfoCalendarioController.selected}"/>
                         </f:facet>
                     </p:dataTable>
                 </p:panel>

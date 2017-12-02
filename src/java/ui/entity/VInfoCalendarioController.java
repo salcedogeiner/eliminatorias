@@ -19,13 +19,12 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-
 @Named("vInfoCalendarioController")
 @SessionScoped
 public class VInfoCalendarioController implements Serializable {
 
-
-    @EJB private dat.facade.VInfoCalendarioFacade ejbFacade;
+    @EJB
+    private dat.facade.VInfoCalendarioFacade ejbFacade;
     private List<VInfoCalendario> items = null;
     private VInfoCalendario selected;
 
@@ -122,7 +121,7 @@ public class VInfoCalendarioController implements Serializable {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass=VInfoCalendario.class)
+    @FacesConverter(forClass = VInfoCalendario.class)
     public static class VInfoCalendarioControllerConverter implements Converter {
 
         @Override
@@ -130,7 +129,7 @@ public class VInfoCalendarioController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            VInfoCalendarioController controller = (VInfoCalendarioController)facesContext.getApplication().getELResolver().
+            VInfoCalendarioController controller = (VInfoCalendarioController) facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "vInfoCalendarioController");
             return controller.getVInfoCalendario(getKey(value));
         }

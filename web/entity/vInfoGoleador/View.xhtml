@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VInfoGoleadorViewDlg" widgetVar="VInfoGoleadorViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewVInfoGoleadorTitle}">
+            <h:form id="VInfoGoleadorViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vInfoGoleadorController.selected != null}">
+                        <h:outputText value="#{bundle.ViewVInfoGoleadorLabel_codJugador}"/>
+                        <h:outputText value="#{vInfoGoleadorController.selected.codJugador}" title="#{bundle.ViewVInfoGoleadorTitle_codJugador}"/>
+                        <h:outputText value="#{bundle.ViewVInfoGoleadorLabel_nomJugador}"/>
+                        <h:outputText value="#{vInfoGoleadorController.selected.nomJugador}" title="#{bundle.ViewVInfoGoleadorTitle_nomJugador}"/>
+                        <h:outputText value="#{bundle.ViewVInfoGoleadorLabel_apeJugador}"/>
+                        <h:outputText value="#{vInfoGoleadorController.selected.apeJugador}" title="#{bundle.ViewVInfoGoleadorTitle_apeJugador}"/>
+                        <h:outputText value="#{bundle.ViewVInfoGoleadorLabel_goles}"/>
+                        <h:outputText value="#{vInfoGoleadorController.selected.goles}" title="#{bundle.ViewVInfoGoleadorTitle_goles}"/>
+                        <h:outputText value="#{bundle.ViewVInfoGoleadorLabel_codEquipo}"/>
+                        <h:outputText value="#{vInfoGoleadorController.selected.codEquipo}" title="#{bundle.ViewVInfoGoleadorTitle_codEquipo}"/>
+                        <h:outputText value="#{bundle.ViewVInfoGoleadorLabel_nomEquipo}"/>
+                        <h:outputText value="#{vInfoGoleadorController.selected.nomEquipo}" title="#{bundle.ViewVInfoGoleadorTitle_nomEquipo}"/>
+                        <h:outputText value="#{bundle.ViewVInfoGoleadorLabel_edadAnios}"/>
+                        <h:outputText value="#{vInfoGoleadorController.selected.edadAnios}" title="#{bundle.ViewVInfoGoleadorTitle_edadAnios}"/>
+                        <h:outputText value="#{bundle.ViewVInfoGoleadorLabel_posicion}"/>
+                        <h:outputText value="#{vInfoGoleadorController.selected.posicion}" title="#{bundle.ViewVInfoGoleadorTitle_posicion}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="VInfoGoleadorViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

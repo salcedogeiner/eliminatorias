@@ -24,6 +24,10 @@
                         <p:calendar id="FEnfrenta" pattern="MM/dd/yyyy" value="#{vGolesEquipoEnfrentaController.selected.FEnfrenta}" title="#{bundle.EditVGolesEquipoEnfrentaTitle_FEnfrenta}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.EditVGolesEquipoEnfrentaLabel_goles}" for="goles" />
                         <p:inputText id="goles" value="#{vGolesEquipoEnfrentaController.selected.goles}" title="#{bundle.EditVGolesEquipoEnfrentaTitle_goles}" />
+                        <p:outputLabel value="#{bundle.EditVGolesEquipoEnfrentaLabel_autogoles}" for="autogoles" />
+                        <p:inputText id="autogoles" value="#{vGolesEquipoEnfrentaController.selected.autogoles}" title="#{bundle.EditVGolesEquipoEnfrentaTitle_autogoles}" />
+                        <p:outputLabel value="#{bundle.EditVGolesEquipoEnfrentaLabel_golw}" for="golw" />
+                        <p:inputText id="golw" value="#{vGolesEquipoEnfrentaController.selected.golw}" title="#{bundle.EditVGolesEquipoEnfrentaTitle_golw}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{vGolesEquipoEnfrentaController.update}" value="#{bundle.Save}" update="display,:VGolesEquipoEnfrentaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'VGolesEquipoEnfrentaEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="VGolesEquipoEnfrentaEditDialog.hide()"/>

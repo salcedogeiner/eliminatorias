@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VInfoPosicionesCreateDlg" widgetVar="VInfoPosicionesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateVInfoPosicionesTitle}">
+            <h:form id="VInfoPosicionesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vInfoPosicionesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateVInfoPosicionesLabel_posicion}" for="posicion" />
+                        <p:inputText id="posicion" value="#{vInfoPosicionesController.selected.posicion}" title="#{bundle.CreateVInfoPosicionesTitle_posicion}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoPosicionesLabel_codEquipo}" for="codEquipo" />
+                        <p:inputText id="codEquipo" value="#{vInfoPosicionesController.selected.codEquipo}" title="#{bundle.CreateVInfoPosicionesTitle_codEquipo}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoPosicionesLabel_nomEquipo}" for="nomEquipo" />
+                        <p:inputText id="nomEquipo" value="#{vInfoPosicionesController.selected.nomEquipo}" title="#{bundle.CreateVInfoPosicionesTitle_nomEquipo}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoPosicionesLabel_codConfederacion}" for="codConfederacion" />
+                        <p:inputText id="codConfederacion" value="#{vInfoPosicionesController.selected.codConfederacion}" title="#{bundle.CreateVInfoPosicionesTitle_codConfederacion}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoPosicionesLabel_nomConfederacion}" for="nomConfederacion" />
+                        <p:inputText id="nomConfederacion" value="#{vInfoPosicionesController.selected.nomConfederacion}" title="#{bundle.CreateVInfoPosicionesTitle_nomConfederacion}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoPosicionesLabel_codPais}" for="codPais" />
+                        <p:inputText id="codPais" value="#{vInfoPosicionesController.selected.codPais}" title="#{bundle.CreateVInfoPosicionesTitle_codPais}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{vInfoPosicionesController.create}" value="#{bundle.Save}" update="display,:VInfoPosicionesListForm:datalist,:growl" oncomplete="handleSubmit(args,'VInfoPosicionesCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="VInfoPosicionesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

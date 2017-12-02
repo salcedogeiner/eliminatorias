@@ -10,61 +10,55 @@
 
 
         <ui:define name="title">
-            <h:outputText value="#{bundle.ListVInfoTecnicosTitle}"></h:outputText>
+            <h:outputText value="#{bundle.ListVInfoClasificadosTitle}"></h:outputText>
         </ui:define>
 
         <ui:define name="body">
-            <h:form id="VInfoTecnicosListForm">
-                <p:panel header="#{bundle.ListVInfoTecnicosTitle}">
-                    <p:dataTable id="datalist" value="#{vInfoTecnicosController.items}" var="item"
-                                 selectionMode="single" selection="#{vInfoTecnicosController.selected}"
+            <h:form id="VInfoClasificadosListForm">
+                <p:panel header="#{bundle.ListVInfoClasificadosTitle}">
+                    <p:dataTable id="datalist" value="#{vInfoClasificadosController.items}" var="item"
+                                 selectionMode="single" selection="#{vInfoClasificadosController.selected}"
                                  paginator="true"
                                  rowKey="#{item.codEquipo}"
                                  rows="10"
                                  rowsPerPageTemplate="10,20,30,40,50"
                                  >
 
-                        <p:ajax event="rowSelect"   update=" viewButton "/>
-                        <p:ajax event="rowUnselect" update=" viewButton "/>
+                        <p:ajax event="rowSelect"   update="viewButton "/>
+                        <p:ajax event="rowUnselect" update="viewButton "/>
 
                         <p:column filterBy="#{item.codEquipo}">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVInfoTecnicosTitle_codEquipo}"/>
+                                <h:outputText value="#{bundle.ListVInfoClasificadosTitle_codEquipo}"/>
                             </f:facet>
                             <h:outputText value="#{item.codEquipo}"/>
                         </p:column>
                         <p:column filterBy="#{item.nomEquipo}">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVInfoTecnicosTitle_nomEquipo}"/>
+                                <h:outputText value="#{bundle.ListVInfoClasificadosTitle_nomEquipo}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomEquipo}"/>
                         </p:column>
-                        <p:column filterBy="#{item.codTecnico}">
+                        <p:column filterBy="#{item.codConfederacion}">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVInfoTecnicosTitle_codTecnico}"/>
+                                <h:outputText value="#{bundle.ListVInfoClasificadosTitle_codConfederacion}"/>
                             </f:facet>
-                            <h:outputText value="#{item.codTecnico}"/>
+                            <h:outputText value="#{item.codConfederacion}"/>
                         </p:column>
-                        <p:column filterBy="#{item.nomTecnico}">
+                        <p:column filterBy="#{item.nomConfederacion}">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVInfoTecnicosTitle_nomTecnico}"/>
+                                <h:outputText value="#{bundle.ListVInfoClasificadosTitle_nomConfederacion}"/>
                             </f:facet>
-                            <h:outputText value="#{item.nomTecnico}"/>
-                        </p:column>
-                        <p:column filterBy="#{item.apeTecnico}">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVInfoTecnicosTitle_apeTecnico}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.apeTecnico}"/>
+                            <h:outputText value="#{item.nomConfederacion}"/>
                         </p:column>
                         <p:column filterBy="#{item.codPais}">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVInfoTecnicosTitle_codPais}"/>
+                                <h:outputText value="#{bundle.ListVInfoClasificadosTitle_codPais}"/>
                             </f:facet>
                             <h:outputText value="#{item.codPais}"/>
                         </p:column>
                         <f:facet name="footer">
-                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":VInfoTecnicosViewForm" oncomplete="PF('VInfoTecnicosViewDialog').show()" disabled="#{empty vInfoTecnicosController.selected}"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":VInfoClasificadosViewForm" oncomplete="PF('VInfoClasificadosViewDialog').show()" disabled="#{empty vInfoClasificadosController.selected}"/>
                         </f:facet>
                     </p:dataTable>
                 </p:panel>

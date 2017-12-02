@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VInfoClasificadosCreateDlg" widgetVar="VInfoClasificadosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateVInfoClasificadosTitle}">
+            <h:form id="VInfoClasificadosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vInfoClasificadosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateVInfoClasificadosLabel_codEquipo}" for="codEquipo" />
+                        <p:inputText id="codEquipo" value="#{vInfoClasificadosController.selected.codEquipo}" title="#{bundle.CreateVInfoClasificadosTitle_codEquipo}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoClasificadosLabel_nomEquipo}" for="nomEquipo" />
+                        <p:inputText id="nomEquipo" value="#{vInfoClasificadosController.selected.nomEquipo}" title="#{bundle.CreateVInfoClasificadosTitle_nomEquipo}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoClasificadosLabel_codConfederacion}" for="codConfederacion" />
+                        <p:inputText id="codConfederacion" value="#{vInfoClasificadosController.selected.codConfederacion}" title="#{bundle.CreateVInfoClasificadosTitle_codConfederacion}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoClasificadosLabel_nomConfederacion}" for="nomConfederacion" />
+                        <p:inputText id="nomConfederacion" value="#{vInfoClasificadosController.selected.nomConfederacion}" title="#{bundle.CreateVInfoClasificadosTitle_nomConfederacion}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoClasificadosLabel_codPais}" for="codPais" />
+                        <p:inputText id="codPais" value="#{vInfoClasificadosController.selected.codPais}" title="#{bundle.CreateVInfoClasificadosTitle_codPais}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{vInfoClasificadosController.create}" value="#{bundle.Save}" update="display,:VInfoClasificadosListForm:datalist,:growl" oncomplete="handleSubmit(args,'VInfoClasificadosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="VInfoClasificadosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

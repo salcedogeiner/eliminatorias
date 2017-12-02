@@ -1,9 +1,9 @@
 package ui.entity;
 
-import dat.entity.VInfoEquiposGolesPuntos;
+import dat.entity.VInfoGoleador;
 import ui.entity.util.JsfUtil;
 import ui.entity.util.JsfUtil.PersistAction;
-import dat.facade.VInfoEquiposGolesPuntosFacade;
+import dat.facade.VInfoGoleadorFacade;
 
 import java.io.Serializable;
 import java.util.List;
@@ -19,23 +19,23 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-@Named("vInfoEquiposGolesPuntosController")
+@Named("vInfoGoleadorController")
 @SessionScoped
-public class VInfoEquiposGolesPuntosController implements Serializable {
+public class VInfoGoleadorController implements Serializable {
 
     @EJB
-    private dat.facade.VInfoEquiposGolesPuntosFacade ejbFacade;
-    private List<VInfoEquiposGolesPuntos> items = null;
-    private VInfoEquiposGolesPuntos selected;
+    private dat.facade.VInfoGoleadorFacade ejbFacade;
+    private List<VInfoGoleador> items = null;
+    private VInfoGoleador selected;
 
-    public VInfoEquiposGolesPuntosController() {
+    public VInfoGoleadorController() {
     }
 
-    public VInfoEquiposGolesPuntos getSelected() {
+    public VInfoGoleador getSelected() {
         return selected;
     }
 
-    public void setSelected(VInfoEquiposGolesPuntos selected) {
+    public void setSelected(VInfoGoleador selected) {
         this.selected = selected;
     }
 
@@ -45,36 +45,36 @@ public class VInfoEquiposGolesPuntosController implements Serializable {
     protected void initializeEmbeddableKey() {
     }
 
-    private VInfoEquiposGolesPuntosFacade getFacade() {
+    private VInfoGoleadorFacade getFacade() {
         return ejbFacade;
     }
 
-    public VInfoEquiposGolesPuntos prepareCreate() {
-        selected = new VInfoEquiposGolesPuntos();
+    public VInfoGoleador prepareCreate() {
+        selected = new VInfoGoleador();
         initializeEmbeddableKey();
         return selected;
     }
 
     public void create() {
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("VInfoEquiposGolesPuntosCreated"));
+        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("VInfoGoleadorCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
 
     public void update() {
-        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("VInfoEquiposGolesPuntosUpdated"));
+        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("VInfoGoleadorUpdated"));
     }
 
     public void destroy() {
-        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("VInfoEquiposGolesPuntosDeleted"));
+        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("VInfoGoleadorDeleted"));
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
 
-    public List<VInfoEquiposGolesPuntos> getItems() {
+    public List<VInfoGoleador> getItems() {
         if (items == null) {
             items = getFacade().findAll();
         }
@@ -109,38 +109,38 @@ public class VInfoEquiposGolesPuntosController implements Serializable {
         }
     }
 
-    public VInfoEquiposGolesPuntos getVInfoEquiposGolesPuntos(java.lang.String id) {
+    public VInfoGoleador getVInfoGoleador(java.lang.Integer id) {
         return getFacade().find(id);
     }
 
-    public List<VInfoEquiposGolesPuntos> getItemsAvailableSelectMany() {
+    public List<VInfoGoleador> getItemsAvailableSelectMany() {
         return getFacade().findAll();
     }
 
-    public List<VInfoEquiposGolesPuntos> getItemsAvailableSelectOne() {
+    public List<VInfoGoleador> getItemsAvailableSelectOne() {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = VInfoEquiposGolesPuntos.class)
-    public static class VInfoEquiposGolesPuntosControllerConverter implements Converter {
+    @FacesConverter(forClass = VInfoGoleador.class)
+    public static class VInfoGoleadorControllerConverter implements Converter {
 
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            VInfoEquiposGolesPuntosController controller = (VInfoEquiposGolesPuntosController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "vInfoEquiposGolesPuntosController");
-            return controller.getVInfoEquiposGolesPuntos(getKey(value));
+            VInfoGoleadorController controller = (VInfoGoleadorController) facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "vInfoGoleadorController");
+            return controller.getVInfoGoleador(getKey(value));
         }
 
-        java.lang.String getKey(String value) {
-            java.lang.String key;
-            key = value;
+        java.lang.Integer getKey(String value) {
+            java.lang.Integer key;
+            key = Integer.valueOf(value);
             return key;
         }
 
-        String getStringKey(java.lang.String value) {
+        String getStringKey(java.lang.Integer value) {
             StringBuilder sb = new StringBuilder();
             sb.append(value);
             return sb.toString();
@@ -151,11 +151,11 @@ public class VInfoEquiposGolesPuntosController implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof VInfoEquiposGolesPuntos) {
-                VInfoEquiposGolesPuntos o = (VInfoEquiposGolesPuntos) object;
-                return getStringKey(o.getCodEquipo());
+            if (object instanceof VInfoGoleador) {
+                VInfoGoleador o = (VInfoGoleador) object;
+                return getStringKey(o.getCodJugador());
             } else {
-                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), VInfoEquiposGolesPuntos.class.getName()});
+                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), VInfoGoleador.class.getName()});
                 return null;
             }
         }

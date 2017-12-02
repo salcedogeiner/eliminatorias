@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VInfoEquiposEditDlg" widgetVar="VInfoEquiposEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditVInfoEquiposTitle}">
+            <h:form id="VInfoEquiposEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vInfoEquiposController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditVInfoEquiposLabel_codEquipo}" for="codEquipo" />
+                        <p:inputText id="codEquipo" value="#{vInfoEquiposController.selected.codEquipo}" title="#{bundle.EditVInfoEquiposTitle_codEquipo}" />
+                        <p:outputLabel value="#{bundle.EditVInfoEquiposLabel_nomEquipo}" for="nomEquipo" />
+                        <p:inputText id="nomEquipo" value="#{vInfoEquiposController.selected.nomEquipo}" title="#{bundle.EditVInfoEquiposTitle_nomEquipo}" />
+                        <p:outputLabel value="#{bundle.EditVInfoEquiposLabel_puntaje}" for="puntaje" />
+                        <p:inputText id="puntaje" value="#{vInfoEquiposController.selected.puntaje}" title="#{bundle.EditVInfoEquiposTitle_puntaje}" />
+                        <p:outputLabel value="#{bundle.EditVInfoEquiposLabel_clasifica}" for="clasifica" />
+                        <p:inputText id="clasifica" value="#{vInfoEquiposController.selected.clasifica}" title="#{bundle.EditVInfoEquiposTitle_clasifica}" />
+                        <p:outputLabel value="#{bundle.EditVInfoEquiposLabel_sedeOficial}" for="sedeOficial" />
+                        <p:inputText id="sedeOficial" value="#{vInfoEquiposController.selected.sedeOficial}" title="#{bundle.EditVInfoEquiposTitle_sedeOficial}" />
+                        <p:outputLabel value="#{bundle.EditVInfoEquiposLabel_participaciones}" for="participaciones" />
+                        <p:inputText id="participaciones" value="#{vInfoEquiposController.selected.participaciones}" title="#{bundle.EditVInfoEquiposTitle_participaciones}" />
+                        <p:outputLabel value="#{bundle.EditVInfoEquiposLabel_titulos}" for="titulos" />
+                        <p:inputText id="titulos" value="#{vInfoEquiposController.selected.titulos}" title="#{bundle.EditVInfoEquiposTitle_titulos}" />
+                        <p:outputLabel value="#{bundle.EditVInfoEquiposLabel_goles}" for="goles" />
+                        <p:inputText id="goles" value="#{vInfoEquiposController.selected.goles}" title="#{bundle.EditVInfoEquiposTitle_goles}" />
+                        <p:outputLabel value="#{bundle.EditVInfoEquiposLabel_golesContra}" for="golesContra" />
+                        <p:inputText id="golesContra" value="#{vInfoEquiposController.selected.golesContra}" title="#{bundle.EditVInfoEquiposTitle_golesContra}" />
+                        <p:outputLabel value="#{bundle.EditVInfoEquiposLabel_diferenciaGoles}" for="diferenciaGoles" />
+                        <p:inputText id="diferenciaGoles" value="#{vInfoEquiposController.selected.diferenciaGoles}" title="#{bundle.EditVInfoEquiposTitle_diferenciaGoles}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{vInfoEquiposController.update}" value="#{bundle.Save}" update="display,:VInfoEquiposListForm:datalist,:growl" oncomplete="handleSubmit(args, 'VInfoEquiposEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="VInfoEquiposEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

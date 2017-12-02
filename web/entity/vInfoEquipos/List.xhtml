@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListVInfoEquiposTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="VInfoEquiposListForm">
+                <p:panel header="#{bundle.ListVInfoEquiposTitle}">
+                    <p:dataTable id="datalist" value="#{vInfoEquiposController.items}" var="item"
+                                 selectionMode="single" selection="#{vInfoEquiposController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.codEquipo}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="viewButton "/>
+                        <p:ajax event="rowUnselect" update="viewButton "/>
+
+                        <p:column filterBy="#{item.codEquipo}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVInfoEquiposTitle_codEquipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codEquipo}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.nomEquipo}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVInfoEquiposTitle_nomEquipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomEquipo}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.puntaje}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVInfoEquiposTitle_puntaje}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.puntaje}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.clasifica}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVInfoEquiposTitle_clasifica}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.clasifica}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.sedeOficial}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVInfoEquiposTitle_sedeOficial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sedeOficial}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.participaciones}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVInfoEquiposTitle_participaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.participaciones}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.titulos}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVInfoEquiposTitle_titulos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.titulos}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.goles}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVInfoEquiposTitle_goles}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.goles}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.golesContra}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVInfoEquiposTitle_golesContra}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.golesContra}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.diferenciaGoles}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVInfoEquiposTitle_diferenciaGoles}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diferenciaGoles}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":VInfoEquiposViewForm" oncomplete="PF('VInfoEquiposViewDialog').show()" disabled="#{empty vInfoEquiposController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

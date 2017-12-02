@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VInfoEquiposViewDlg" widgetVar="VInfoEquiposViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewVInfoEquiposTitle}">
+            <h:form id="VInfoEquiposViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vInfoEquiposController.selected != null}">
+                        <h:outputText value="#{bundle.ViewVInfoEquiposLabel_codEquipo}"/>
+                        <h:outputText value="#{vInfoEquiposController.selected.codEquipo}" title="#{bundle.ViewVInfoEquiposTitle_codEquipo}"/>
+                        <h:outputText value="#{bundle.ViewVInfoEquiposLabel_nomEquipo}"/>
+                        <h:outputText value="#{vInfoEquiposController.selected.nomEquipo}" title="#{bundle.ViewVInfoEquiposTitle_nomEquipo}"/>
+                        <h:outputText value="#{bundle.ViewVInfoEquiposLabel_puntaje}"/>
+                        <h:outputText value="#{vInfoEquiposController.selected.puntaje}" title="#{bundle.ViewVInfoEquiposTitle_puntaje}"/>
+                        <h:outputText value="#{bundle.ViewVInfoEquiposLabel_clasifica}"/>
+                        <h:outputText value="#{vInfoEquiposController.selected.clasifica}" title="#{bundle.ViewVInfoEquiposTitle_clasifica}"/>
+                        <h:outputText value="#{bundle.ViewVInfoEquiposLabel_sedeOficial}"/>
+                        <h:outputText value="#{vInfoEquiposController.selected.sedeOficial}" title="#{bundle.ViewVInfoEquiposTitle_sedeOficial}"/>
+                        <h:outputText value="#{bundle.ViewVInfoEquiposLabel_participaciones}"/>
+                        <h:outputText value="#{vInfoEquiposController.selected.participaciones}" title="#{bundle.ViewVInfoEquiposTitle_participaciones}"/>
+                        <h:outputText value="#{bundle.ViewVInfoEquiposLabel_titulos}"/>
+                        <h:outputText value="#{vInfoEquiposController.selected.titulos}" title="#{bundle.ViewVInfoEquiposTitle_titulos}"/>
+                        <h:outputText value="#{bundle.ViewVInfoEquiposLabel_goles}"/>
+                        <h:outputText value="#{vInfoEquiposController.selected.goles}" title="#{bundle.ViewVInfoEquiposTitle_goles}"/>
+                        <h:outputText value="#{bundle.ViewVInfoEquiposLabel_golesContra}"/>
+                        <h:outputText value="#{vInfoEquiposController.selected.golesContra}" title="#{bundle.ViewVInfoEquiposTitle_golesContra}"/>
+                        <h:outputText value="#{bundle.ViewVInfoEquiposLabel_diferenciaGoles}"/>
+                        <h:outputText value="#{vInfoEquiposController.selected.diferenciaGoles}" title="#{bundle.ViewVInfoEquiposTitle_diferenciaGoles}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="VInfoEquiposViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -24,6 +24,8 @@
                         <p:inputText id="gf" value="#{vInfoEquiposGolesPuntosController.selected.gf}" title="#{bundle.CreateVInfoEquiposGolesPuntosTitle_gf}" />
                         <p:outputLabel value="#{bundle.CreateVInfoEquiposGolesPuntosLabel_gc}" for="gc" />
                         <p:inputText id="gc" value="#{vInfoEquiposGolesPuntosController.selected.gc}" title="#{bundle.CreateVInfoEquiposGolesPuntosTitle_gc}" />
+                        <p:outputLabel value="#{bundle.CreateVInfoEquiposGolesPuntosLabel_posicion}" for="posicion" />
+                        <p:inputText id="posicion" value="#{vInfoEquiposGolesPuntosController.selected.posicion}" title="#{bundle.CreateVInfoEquiposGolesPuntosTitle_posicion}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{vInfoEquiposGolesPuntosController.create}" value="#{bundle.Save}" update="display,:VInfoEquiposGolesPuntosListForm:datalist,:growl" oncomplete="handleSubmit(args,'VInfoEquiposGolesPuntosCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="VInfoEquiposGolesPuntosCreateDialog.hide()"/>

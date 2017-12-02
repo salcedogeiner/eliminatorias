@@ -33,6 +33,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "VInfoEquiposGolesPuntos.findByGc", query = "SELECT v FROM VInfoEquiposGolesPuntos v WHERE v.gc = :gc")})
 public class VInfoEquiposGolesPuntos implements Serializable {
 
+    @Column(name = "posicion")
+    private BigInteger posicion;
+
     private static final long serialVersionUID = 1L;
     @Id
     @Size(max = 3)
@@ -99,6 +102,14 @@ public class VInfoEquiposGolesPuntos implements Serializable {
 
     public void setGc(Integer gc) {
         this.gc = gc;
+    }
+
+    public BigInteger getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(BigInteger posicion) {
+        this.posicion = posicion;
     }
     
 }
